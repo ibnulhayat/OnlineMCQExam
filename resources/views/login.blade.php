@@ -38,29 +38,29 @@
                                 <div class="d-flex justify-content-center"> 
                                     <button class="au-btn  au-btn--green m-b-20 m-r-20" type="submit">Log in</button>
 
-                                    <a href="{{route('registration')}}" class="au-btn au-btn--blue m-b-20" type="button">Sign in</a>
+                                    <a href="{{route('registration')}}" class="au-btn au-btn--blue m-b-20" type="button">Sign Up</a>
                                 </div>
 
                                 <div>
                                     @if(Session::has('error'))
                                     <div class="alert alert-danger" role="alert">
-                                       {{ session('error') }}
-                                   </div>
-                                   @endif
-                               </div>
-                           </form>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
+                                     {{ session('error') }}
+                                 </div>
+                                 @endif
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
 
-   </div>
+ </div>
 
-   <script src="{{asset('assets/vendor/jquery-3.2.1.min.js')}}"></script>
-   <script src="{{asset('assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
-   <script src="{{asset('assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-   <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
-   <script src="{{asset('assets/js/main.js')}}"></script>
+ <script src="{{asset('assets/vendor/jquery-3.2.1.min.js')}}"></script>
+ <script src="{{asset('assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+ <script src="{{asset('assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+ <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
+ <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>

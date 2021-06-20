@@ -16,8 +16,6 @@ class Dashboard extends Controller
 
     public function setExamPaper(Request $request)
     {
-
-
         return view('admin/set_exam_paper');
     }
 
@@ -35,7 +33,7 @@ class Dashboard extends Controller
         $model->save(); 
         $request->file->move(public_path('uploads'), $fileName);
 
-        return redirect('admin/dashboard');
+        return redirect('dashboard');
 
     }
 }

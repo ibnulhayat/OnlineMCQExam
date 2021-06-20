@@ -20,9 +20,9 @@ class UserController extends Controller
             $model->status = $type;
             $model->save();
             $request->session()->flash('message','User Request Accepted');
-            return redirect('admin/user-list');
+            return redirect('user-list');
         }else{
-            return redirect('admin/user-list');
+            return redirect('user-list');
         }
     }
 }

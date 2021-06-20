@@ -30,7 +30,7 @@
                             @if($list->status=="active")
                             <a href="{{url('user/status/inactive')}}/{{$list->id}}"><button type="button" class="btn btn-success">Active</button></a>
                             @elseif($list->status=="inactive")
-                            <a href="{{url('user/status/active')}}/{{$list->id}}"><button type="button" class="btn btn-warning">Send Request</button></a>
+                            <a href="{{url('user/status/active')}}/{{$list->id}}"><button type="button" class="btn btn-warning">Accept Request</button></a>
                             @endif
                         </td>
                     </tr>
