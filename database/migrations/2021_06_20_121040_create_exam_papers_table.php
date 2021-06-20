@@ -15,6 +15,10 @@ class CreateExamPapersTable extends Migration
     {
         Schema::create('exam_papers', function (Blueprint $table) {
             $table->id();
+            $table->string('subject_name');
+            $table->string('exam_type');
+            $table->integer('time_duration');
+            $table->string('question_name');
             $table->timestamps();
         });
     }

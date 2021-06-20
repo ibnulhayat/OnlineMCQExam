@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $user['data'] = User::all();
-        return view('user_list',$user);
+        return view('admin/user_list',$user);
     }
 
     public function status(Request $request,$type,$id)
@@ -20,9 +20,9 @@ class UserController extends Controller
             $model->status = $type;
             $model->save();
             $request->session()->flash('message','User Request Accepted');
-            return redirect('user-list');
+            return redirect('admin/user-list');
         }else{
-            return redirect('user-list');
+            return redirect('admin/user-list');
         }
     }
 }

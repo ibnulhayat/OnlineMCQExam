@@ -20,8 +20,8 @@ class Login extends Controller
 
         $user = User::where(['email'=>$email])->get();
         
-        //dd($result);
-        if(count($user) > 0)
+        //dd($user);
+        if(count($user) > 0 && $user['0']->status == "active")
         {
             if($req->post('password') == $user['0']->password)
             {
@@ -35,7 +35,10 @@ class Login extends Controller
             }
 
         }else{
-            $req->session()->flash('error','User Not Fount');
+            if($user['0']->status == "inactive")
+                $req->session()->flash('error','Please Contact admin. Your Id is deactive.');
+            else
+                $req->session()->flash('error','User not found.');
             return redirect('login');
         }
 

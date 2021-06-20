@@ -3,52 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Exam_papers;
 
 class Dashboard extends Controller
 {
 
     public function index()
     {
-        return view('dashboard'); 
+        $arr['data'] = Exam_papers::all();
+        return view('admin/dashboard',$arr); 
     }
 
-    public function setExamPaper(Request $request,$id='')
+    public function setExamPaper(Request $request)
     {
-        // if($id>0){
-        //     $arr=Color::where(['id'=>$id])->get();
 
-        //     $result['color']=$arr['0']->color;
-        //     $result['status']=$arr['0']->status;
-        //     $result['id']=$arr['0']->id;
-        // }else{
-        //     $result['color']='';
-        //     $result['status']='';
-        //     $result['id']=0;
 
-        // }
-        return view('set_exam_paper');
+        return view('admin/set_exam_paper');
     }
 
     public function storeExamPaper(Request $request)
     {
-        //return $request->post();
-
+        $model = new Exam_papers();
         $request->validate([
-            'color'=>'required|unique:colors,color,'.$request->post('id'),
+            'file' => 'required|mimes:pdf,docx,doc|max:2048',
         ]);
+        $fileName = time().'.'.$request->file->extension();  
+        $model->subject_name = $request->post('subject_name'); 
+        $model->exam_type = $request->post('exam_type'); 
+        $model->time_duration = $request->post('time_duration'); 
+        $model->question_name = $fileName;
+        $model->save(); 
+        $request->file->move(public_path('uploads'), $fileName);
 
-        if($request->post('id')>0){
-            $model=Color::find($request->post('id'));
-            $msg="Color updated";
-        }else{
-            $model=new Color();
-            $msg="Color inserted";
-        }
-        $model->color=$request->post('color');
-        $model->status=1;
-        $model->save();
-        $request->session()->flash('message',$msg);
-        return redirect('color');
+        return redirect('admin/dashboard');
 
     }
 }

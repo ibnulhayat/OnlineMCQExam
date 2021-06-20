@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2021 at 06:21 PM
+-- Generation Time: Jun 20, 2021 at 09:05 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -25,35 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `exam_papers`
 --
 
-CREATE TABLE `admins` (
+CREATE TABLE `exam_papers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `activation_status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `categories`
---
-
-CREATE TABLE `categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exam_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_duration` int(25) NOT NULL,
+  `question_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exam_papers`
+--
+
+INSERT INTO `exam_papers` (`id`, `subject_name`, `exam_type`, `time_duration`, `question_name`, `created_at`, `updated_at`) VALUES
+(1, 'Bangla', 'Written', 30, '1624215284.pdf', '2021-06-20 12:54:44', '2021-06-20 12:54:44');
 
 -- --------------------------------------------------------
 
@@ -72,12 +62,8 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2021_06_15_054950_create_admins_table', 1),
-(2, '2021_06_15_102650_create_categories_table', 1),
-(3, '2021_06_18_061115_create_copons_table', 1),
-(4, '2021_06_19_045138_create_sizes_table', 1),
-(5, '2021_06_19_061828_create_colors_table', 1),
-(8, '2021_06_20_054842_create_users_table', 2);
+(8, '2021_06_20_054842_create_users_table', 2),
+(9, '2021_06_20_121040_create_exam_papers_table', 3);
 
 -- --------------------------------------------------------
 
@@ -112,15 +98,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `user_type`, `s
 --
 
 --
--- Indexes for table `admins`
+-- Indexes for table `exam_papers`
 --
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
+ALTER TABLE `exam_papers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -140,22 +120,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT for table `exam_papers`
 --
-ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `exam_papers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
