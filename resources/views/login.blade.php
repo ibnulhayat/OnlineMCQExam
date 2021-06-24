@@ -21,7 +21,7 @@
                     <div class="login-content">
                         <div class="login-logo">
 
-                            <h2>Login</h2>
+                            <h2>Login box</h2>
                         </div>
                         <div class="login-form">
                             <form action="{{route('logincheck')}}" method="post">
@@ -44,23 +44,23 @@
                                 <div>
                                     @if(Session::has('error'))
                                     <div class="alert alert-danger" role="alert">
-                                     {{ session('error') }}
-                                 </div>
-                                 @endif
-                             </div>
-                         </form>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+                                       {{ session('error') }}
+                                   </div>
+                                   @endif
+                               </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
- </div>
+   </div>
 
- <script src="{{asset('assets/vendor/jquery-3.2.1.min.js')}}"></script>
- <script src="{{asset('assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
- <script src="{{asset('assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
- <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
- <script src="{{asset('assets/js/main.js')}}"></script>
+   <script src="{{asset('assets/vendor/jquery-3.2.1.min.js')}}"></script>
+   <script src="{{asset('assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+   <script src="{{asset('assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+   <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
+   <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>
