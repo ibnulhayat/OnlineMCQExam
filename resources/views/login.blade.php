@@ -21,7 +21,7 @@
                     <div class="login-content">
                         <div class="login-logo">
 
-                            <h2>Login box</h2>
+                            <h2>Login box change</h2>
                         </div>
                         <div class="login-form">
                             <form action="{{route('logincheck')}}" method="post">
