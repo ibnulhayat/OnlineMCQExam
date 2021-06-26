@@ -28,6 +28,7 @@ use App\Http\Controllers\ColorController;
 //  return "Cache is cleared";
 // });
 
+Route::get('/loginData',[Login::class,'Data']);
 
 Route::get('/', [Login::class,'index']);
 Route::get('/login', [Login::class,'index'])->name('login');

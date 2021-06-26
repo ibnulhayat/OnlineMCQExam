@@ -13,6 +13,13 @@ class Login extends Controller
         return view('login');
     }
 
+    public function Data()
+    {
+        //return User::get(['id','name','email','phone','user_type','status']);
+        $model = new User();
+        return User::all();
+    }
+
     public function loginCheck(Request $req)
     {
         $email = $req->post('email');
