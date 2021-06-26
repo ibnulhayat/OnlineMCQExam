@@ -29,11 +29,8 @@ use App\Http\Controllers\ColorController;
 // });
 
 Route::get('/loginData',[Login::class,'Data']);
-<<<<<<< HEAD
-=======
-Route::get('/log',[Login::class,'Data']);
 
->>>>>>> istiaq
+Route::get('/log',[Login::class,'Data']);
 
 Route::get('/', [Login::class,'index']);
 Route::get('/login', [Login::class,'index'])->name('login');
